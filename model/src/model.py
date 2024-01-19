@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor, ExtraTreesRegressor, GradientBoostingRegressor, HistGradientBoostingRegressor
 from sklearn.neural_network import MLPRegressor
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score, root_mean_squared_error
 from column_names import unix_time, data_, radiation
 from os import path
 
@@ -35,23 +35,23 @@ def prepareDataForTraining():
 
 def trainAndSaveModel():
     prepareDataForTraining()
-    et = ExtraTreesRegressor(n_estimators=128, max_depth=32, min_samples_split=1, min_samples_leaf=1)
+    et = ExtraTreesRegressor(n_estimators=30, max_depth=180, min_samples_split=10)
     dump(et.fit(concatenate((X_train_normalized, X_test_normalized), axis=0), concat([y_train, y_test], ignore_index=True)), file=open(model_path, "wb"))
 
 def printStatistics(algorithmName, y_pred, y_test):
     mae = mean_absolute_error(y_pred, y_test)
     mse = mean_squared_error(y_pred, y_test)
-    rmse = mean_squared_error(y_pred, y_test, squared=False)
+    rmse = root_mean_squared_error(y_pred, y_test)
     r2 = r2_score(y_pred, y_test)
     print(f"{algorithmName}:")
     print(f"Mean Absolute Error: {mae}\nMean Squared Error: {mse}\nRoot Mean Squared Error: {rmse}\nCoefficient of Determination: {r2}\n")
 
 def trainAndTestModels():
-    rf = RandomForestRegressor(n_estimators=64, max_depth=100, min_samples_split=1)
+    rf = RandomForestRegressor(n_estimators=64, max_depth=100, min_samples_split=10)
     printStatistics(algorithmName="Random Forest Regressor", 
         y_pred=rf.fit(X_train_normalized, y_train).predict(X_test_normalized), y_test=y_test)
 
-    et = ExtraTreesRegressor(n_estimators=30, max_depth=180, min_samples_split=1)
+    et = ExtraTreesRegressor(n_estimators=30, max_depth=180, min_samples_split=10)
     printStatistics(algorithmName="Extra Trees Regressor",
         y_pred=et.fit(X_train_normalized, y_train).predict(X_test_normalized), y_test=y_test)
 
