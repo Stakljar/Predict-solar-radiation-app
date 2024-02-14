@@ -1,4 +1,4 @@
-Web application that enables you to predict solar radiation based on given parameters.
+Web application that enables you to predict solar radiation based on parameters that you input.
 Made using react and python.
 Note that measuring units were taken based on typical values of parameters.
 
