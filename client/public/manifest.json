@@ -1,6 +1,6 @@
 {
-  "short_name": "Predict Solar Radiation App",
-  "name": "Predict Solar Radiation App Example",
+  "short_name": "Solar Rad",
+  "name": "Predict Solar Radiation",
   "icons": [
     {
       "src": "favicon.ico",
