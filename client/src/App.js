@@ -3,7 +3,7 @@ import GetStarted from "./routes/GetStarted";
 import Shared from "./routes/Shared";
 import Prediction from "./routes/Prediction"
 import GraphPrediction from "./routes/GraphPrediction";
-import Error from "./routes/Error";
+import NotFound from "./routes/NotFound";
 import "./styles/App.css";
 
 let singlePredictionRoute = "/single_prediction"
@@ -19,7 +19,7 @@ function App() {
             <Route path={ singlePredictionRoute } element={ <Prediction /> }/>
             <Route path={ graphPredictionRoute } element={ <GraphPrediction /> }/>
           </Route>
-          <Route path="*" element={ <Error /> }/>
+          <Route path="*" element={ <NotFound /> }/>
         </Routes>
       </BrowserRouter>
     </div>
