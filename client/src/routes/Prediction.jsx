@@ -3,8 +3,8 @@ import InputRange from "react-input-range"
 import { Form, Container, Row, Col, Button, Spinner } from "react-bootstrap"
 import { useEffect, useState } from "react"
 import Select from "react-select"
-import times from "../params/Times"
-import filterAndSort from "../utils/FilterAndSort"
+import times from "../params/times"
+import filterAndSort from "../utils/filterAndSort"
 import "../styles/Prediction.css"
 
 function Prediction() {

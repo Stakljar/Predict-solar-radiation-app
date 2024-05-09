@@ -2,9 +2,9 @@ import { ToggleButtonGroup, ToggleButton, Button, Spinner } from "react-bootstra
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from "recharts"
 import { useEffect, useState } from "react";
 import TimePickerInput from "react-time-picker-input"
-import times from "../params/Times"
+import times from "../params/times"
 import Select from "react-select"
-import filterAndSort from "../utils/FilterAndSort"
+import filterAndSort from "../utils/filterAndSort"
 import "../styles/GraphPrediction.css"
 
 function GraphPrediction() {
