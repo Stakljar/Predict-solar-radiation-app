@@ -7,13 +7,17 @@ Source of dataset used is https://www.kaggle.com/datasets/dronio/SolarEnergy, th
 and any rights in individual contents of the dataset are licensed under Database Contents License (DbCL): https://opendatacommons.org/licenses/dbcl/1-0/.
 
 ## How to run
+Clone the repository:
+```cmd
+git clone https://github.com/Stakljar/Predict-solar-radiation-app.git
+```
 Download dataset from https://www.kaggle.com/datasets/dronio/SolarEnergy and put it inside model/resources directory.
 Navigate to model/src directory and execute following command:
-```bat
+```cmd
 py api.py
 ```
 Navigate to client directory and execute following commands:
-```bat
+```cmd
 npm install -f
 npm start
 ```
