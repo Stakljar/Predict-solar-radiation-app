@@ -11,8 +11,8 @@ Clone the repository:
 ```cmd
 git clone https://github.com/Stakljar/Predict-solar-radiation-app.git
 ```
-Download dataset from https://www.kaggle.com/datasets/dronio/SolarEnergy and put it inside model/resources directory.
-Navigate to model/src directory and execute following command:
+Download dataset from https://www.kaggle.com/datasets/dronio/SolarEnergy and put it inside _model/resources_ directory.
+Navigate to the _model/src_ directory and execute following command:
 ```cmd
 py api.py
 ```
