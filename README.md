@@ -16,7 +16,7 @@ Navigate to the _model/src_ directory and execute following command:
 ```cmd
 py api.py
 ```
-Navigate to client directory and execute following commands:
+Navigate to the _client_ directory and execute following commands:
 ```cmd
 npm install -f
 npm start
