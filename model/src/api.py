@@ -3,8 +3,8 @@ from flask_cors import CORS, cross_origin
 from pandas import DataFrame
 from pickle import load
 from os import path
-from model import trainAndSaveModel
-from data_modification import formatData
+from model import train_and_save_model
+from data_modification import format_data
 from sys import exit
 
 app = Flask(__name__, template_folder=path.join("..", "templates"))
@@ -22,7 +22,7 @@ def start():
 def single_predict():
     json_data = request.get_json()
     data = DataFrame(json_data, index=[0])
-    data = formatData(data)
+    data = format_data(data)
     data = scaler.transform(data)
     prediction = model.predict(data)
     result = {
@@ -35,7 +35,7 @@ def single_predict():
 def multi_predict():
     json_data = request.get_json()
     data = DataFrame(json_data) 
-    data = formatData(data)
+    data = format_data(data)
     data = scaler.transform(data)
     predictions = model.predict(data)
     result = { 
@@ -50,7 +50,7 @@ def multi_predict():
 
 if(__name__ == "__main__"):
     if(not path.exists(path.join("..", "resources", "solar_radiation_prediction_model.pkl"))):
-        trainAndSaveModel()
+        train_and_save_model()
     if(not path.exists(path.join("..", "resources", "scaler.pkl"))):
         print("Scaler not found.")
         exit()
